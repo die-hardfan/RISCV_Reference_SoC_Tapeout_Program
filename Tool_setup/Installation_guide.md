@@ -14,6 +14,7 @@ Before starting, make sure your system meets the following requirements:
 - **OS:** Ubuntu 20.04 or higher  
 
 For virtual machines, it is recommended to use [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+**Important note** : Ubuntu under WSL has been used here, virtual machine may be used.
 
 ---
 
@@ -95,3 +96,4 @@ For tool check:
 gtkwave --version #checks the version
 ```
 ![gtkwave tool check](images/gtk_confirm.png)
+
