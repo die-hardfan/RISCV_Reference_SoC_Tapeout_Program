@@ -21,7 +21,7 @@ It contains:
 ## Week-wise Repository Links
 
 - **Week 1:** [Link to Week 1 repo](https://github.com/die-hardfan/Week1_RTL_Synthesis_and_Design)
-- **Week 2:** [Link to Week 2 repo]  
+- **Week 2:** [Link to Week 2 repo](https://github.com/die-hardfan/Week2_BabySoC_Fundamentals)
 - **Week 3:** [Link to Week 3 repo]
 - **Week 4:** [Link to Week 4 repo]
 - **Week 5:** [Link to Week 5 repo]
