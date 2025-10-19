@@ -281,7 +281,8 @@ cmake -DCUDD_DIR=$HOME/software/cudd ..
 `sudo make install` - Installs OpenSTA system-wide (requires sudo). Executables and libraries are placed in standard directories so you can run opensta from anywhere.
 
 </details>
-//opensta_install
+
+![opensta_install](/Tool_setup/images/opensta_install.png)
 
 For tool check:
 ```bash
@@ -395,7 +396,7 @@ Instead of manually running multiple commands to build ngspice, this script does
 
 </details>
 
-//ngspice_install
+![ngspice_install](/Tool_setup/images/ngspice_install.png)
 
 For tool check:
 
