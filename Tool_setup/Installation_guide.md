@@ -25,7 +25,7 @@ Oracle VirtualBox is an application software that, when downloaded, can make VMs
 When a VM is created anew, it's like choosing the basic parts of a computer. The necessary processing power (CPUs), RAM, and hard disk space are selected along with the operating system you want to run on it. From here, we can either start from scratch, booting the OS and then beginning to work, or use an existing hard disk (that can be shared as a .vdi file).
 
 > “Booting” = the process of starting a computer from a powered-off state to running the OS.
-> VMs borrow and use the CPU in the host computer (where the Oracle VirtualBox software is running). 
+> VMs borrow and use the CPU in the host computer (where the Oracle VirtualBox software is running).
 
 <details>
  <summary> How is OS installed into a computer? </summary>
@@ -173,7 +173,9 @@ The downside is, system requirements are fixed and cannot be changed since the .
 
 # Tools Installation
 
-> Caution: Install the latest version of Yosys, else OpenROAD setup file shows an error.
+> Caution: Install the latest version of Yosys, or else the OpenROAD setup file shows an error.
+> Installing a software system-wide means you can access it (using the relevant keywords like yosys), no matter which directory you are under.
+> Software can also be installed within a specific folder, then it can be accessed only when you're within that folder.
 
 ## 1. Yosys
 
