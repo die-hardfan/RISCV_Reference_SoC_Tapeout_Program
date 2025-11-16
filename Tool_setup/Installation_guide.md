@@ -173,6 +173,8 @@ The downside is, system requirements are fixed and cannot be changed since the .
 
 # Tools Installation
 
+> Caution: Install the latest version of Yosys, else OpenROAD setup file shows an error.
+
 ## 1. Yosys
 
 **Yosys** is an open-source synthesis tool for Verilog designs.  
