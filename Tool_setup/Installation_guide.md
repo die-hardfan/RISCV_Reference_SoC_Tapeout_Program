@@ -14,7 +14,7 @@ Before starting, make sure your system meets the following requirements:
 - **OS:** Ubuntu 20.04 or higher  
 
 For virtual machines, it is recommended to use [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads).
-**Important note** : Ubuntu under WSL has been used here, virtual machine may be used.
+**Important note**: Ubuntu under WSL has been used here; a virtual machine may be used.
 
 <details>
  <summary> VM installation and setup </summary>
@@ -24,7 +24,114 @@ VMs or virtual machines are like virtual computers. Basically, a computer setup 
 Oracle VirtualBox is an application software that, when downloaded, can make VMs run on your computer. It can be downloaded for free from [here](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html).
 When a VM is created anew, it's like choosing the basic parts of a computer. The necessary processing power (CPUs), RAM, and hard disk space are selected along with the operating system you want to run on it. From here, we can either start from scratch, booting the OS and then beginning to work, or use an existing hard disk (that can be shared as a .vdi file).
 
-Typically, a USB or a hardware (laptop or desktop setup) 
+> “Booting” = the process of starting a computer from a powered-off state to running the OS.
+> VMs borrow and use the CPU in the host computer (where the Oracle VirtualBox software is running). 
+
+<details>
+ <summary> How is OS installed into a computer? </summary>
+
+Get the OS installer
+
+Modern OS installers usually come as an ISO file (disk image).
+Examples:
+
+Windows 10/11 → .iso
+
+Ubuntu/Fedora → .iso
+
+macOS → recovery image (built-in or downloaded)
+
+The ISO contains:
+
+Bootloader
+
+Kernel
+
+Installer program
+
+System files
+
+2️⃣ Make a bootable media
+
+Most laptops don’t boot directly from an ISO file. You need a USB drive or DVD.
+
+Tools:
+
+Rufus (Windows)
+
+balenaEtcher (Linux/Windows/macOS)
+
+Linux dd command
+
+The tool writes the ISO onto the USB in a bootable format, including a tiny “mini OS” that can start the installation.
+
+3️⃣ Boot from USB/DVD
+
+Insert the USB/DVD.
+
+Enter BIOS/UEFI or Boot Menu (keys like F2, F12, ESC, DEL).
+
+Select the USB as the boot device.
+
+At this point, the laptop does not use the internal hard drive yet.
+The temporary OS from the USB runs in RAM.
+
+4️⃣ OS installer starts
+
+You see a graphical or text installer (Windows Setup, Ubuntu Installer, Fedora Anaconda, etc.)
+
+The installer prepares the hard disk:
+
+Partitioning: divides disk into sections (EFI, root, home, swap, recovery)
+
+Formatting: writes filesystem structures (NTFS, ext4, APFS, etc.)
+
+The installer does not overwrite everything at once — it copies files in stages to prevent corruption if power fails.
+
+5️⃣ OS files copied to the hard disk
+
+The installer copies all system files from the USB to the internal SSD/HDD:
+
+Kernel
+
+Drivers
+
+System libraries
+
+Default applications
+
+Bootloader
+
+This makes the disk self-bootable.
+
+6️⃣ Bootloader installation
+
+Modern laptops use UEFI bootloader (Windows Boot Manager, GRUB for Linux).
+
+Bootloader tells the laptop:
+
+“Next time, boot from this SSD/HDD, not USB.”
+
+Bootloader is installed in a small special partition (ESP — EFI System Partition).
+
+7️⃣ Reboot into installed OS
+
+The installer finishes copying files and settings.
+
+You remove the USB, and the laptop now boots from the internal drive.
+
+The OS initializes:
+
+Hardware detection
+
+Device drivers (keyboard, display, network, storage)
+
+User setup (accounts, password, region, Wi-Fi)
+
+At this point, the OS is fully installed and ready to use.
+</details>
+
+
 ### VM setup using OS ISO (from scratch)
 1. Select the OS you want to run on the VM. Ubuntu 20.04 has been used here. Click [here](https://releases.ubuntu.com/focal/).
 
@@ -39,8 +146,27 @@ Typically, a USB or a hardware (laptop or desktop setup)
 6. Initially, it takes some time for the OS to be installed from the ISO image into the VM. After that, VM can be used like a normal computer.
 7. For window sizes, go to View --> Virtual Screen 1 ---> scale it up to the necessary size. (Doing this is necessary, else you'll be squinting your eyes trying to read the words on the VM's screen)
 
+When you create a VM in VirtualBox, it asks for a virtual disk. You can:
+
+- Create a new .vdi (empty or dynamically expanding)
+- Use an existing .vdi (copied/shared)
+
+Inside the .vdi:
+
+- The OS installed in the VM lives here
+
+- The VM reads/writes files as if it were a normal hard drive
+
+> Why? 
+> VirtualBox cannot access your physical disk directly for safety, so it uses .vdi as a virtual disk for the VM.
+> The VM sees it as a real hard drive, even though it’s just a file on your host machine.
 
 ### VM setup using .vdi file
+
+When an existing hard disk is used to start a VM, that's already half or more work done (the installation of the OS and work environment setup). Most hands-on workshops nowadays use this. 
+
+The downside is, system requirements are fixed and cannot be changed since the .vdi file is just a copy. 
+
 </details>
 
 ---
