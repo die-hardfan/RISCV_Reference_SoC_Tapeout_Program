@@ -8,13 +8,40 @@ This repository contains instructions to set up a Digital VLSI development envir
 
 Before starting, make sure your system meets the following requirements:
 
-- **RAM:** 6 GB minimum  
+- **RAM:** 6 GB minimum  (so 6144 MB)
 - **Storage:** 50 GB HDD minimum  
-- **CPU:** 4 vCPUs  
+- **CPU:** 4 CPUs  
 - **OS:** Ubuntu 20.04 or higher  
 
 For virtual machines, it is recommended to use [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 **Important note** : Ubuntu under WSL has been used here, virtual machine may be used.
+
+<details>
+ <summary> VM installation and setup </summary>
+
+VMs or virtual machines are like virtual computers. Basically, a computer setup with no hardware - a simulated computer running on a computer.
+
+Oracle VirtualBox is an application software that, when downloaded, can make VMs run on your computer. It can be downloaded for free from [here](https://www.oracle.com/virtualization/technologies/vm/downloads/virtualbox-downloads.html).
+When a VM is created anew, it's like choosing the basic parts of a computer. The necessary processing power (CPUs), RAM, and hard disk space are selected along with the operating system you want to run on it. From here, we can either start from scratch, booting the OS and then beginning to work, or use an existing hard disk (that can be shared as a .vdi file).
+
+Typically, a USB or a hardware (laptop or desktop setup) 
+### VM setup using OS ISO (from scratch)
+1. Select the OS you want to run on the VM. Ubuntu 20.04 has been used here. Click [here](https://releases.ubuntu.com/focal/).
+
+> The version of Ubuntu you're going to download must be compatible with OpenROAD, which will be used later.
+> So, check that from [here](https://openroad-flow-scripts.readthedocs.io/en/latest/index2.html).
+> DO NOT blindly download the latest version of the OS, cuz that will cause problems with OpenROAD installation. And OpenROAD is necessary because it automates the RTL2GDSII flow, essentially covering the entire physical design part.
+
+2. Launch Oracle VirtualBox. Select New.
+3. Give the system requirements.
+4. Select the OS's ISO file.
+5. Finish. After it's done, select the VM, and click on Start.
+6. Initially, it takes some time for the OS to be installed from the ISO image into the VM. After that, VM can be used like a normal computer.
+7. For window sizes, go to View --> Virtual Screen 1 ---> scale it up to the necessary size. (Doing this is necessary, else you'll be squinting your eyes trying to read the words on the VM's screen)
+
+
+### VM setup using .vdi file
+</details>
 
 ---
 
